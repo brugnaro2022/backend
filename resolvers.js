@@ -34,7 +34,18 @@ exports.resolvers = {
       const contract = await Contract.findOneAndRemove({ _id });
       return contract;
     },
-    registerUser: async (root, { name, lastname, email, cpf, phone, createdDate }, { User }) => {
+    registerUser: async (
+      root,
+      {
+        name,
+        lastname,
+        email,
+        cpf,
+        phone,
+        createdDate,
+      },
+      { User },
+    ) => {
       const user = await User.findOne({ name });
       if (user) throw new Error('User already exists!');
       const newUser = await new User({

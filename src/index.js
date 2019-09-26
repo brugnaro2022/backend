@@ -5,26 +5,26 @@ const cors = require('cors');
 require('dotenv').config({ path: 'variables.env' });
 
 // Models
-const Contract = require('./models/Contract');
-const User = require('./models/User');
+const Contract = require('.././models/Contract');
+const User = require('.././models/User');
 
 // Bring Graphql-express middleware
 const { graphiqlExpress, graphqlExpress } = require('apollo-server-express');
 const { makeExecutableSchema } = require('graphql-tools');
 
-const { typeDefs } = require('./schema');
-const { resolvers } = require('./resolvers');
+const { typeDefs } = require('../schema');
+const { resolvers } = require('../resolvers');
 
-// Create schema 
+// Create schema
 const schema = makeExecutableSchema({ typeDefs, resolvers });
 
 // Connect to database
 mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => console.log('DB connected'))
-  .catch(err => console.error(err));
+  .connect(process.env.MONGO_URI);
+// .then(() => console.log('DB connected'))
+// .catch(err => console.error(err));
 
-//Initialize application
+// Initialize application
 const app = express();
 
 const corsOptions = {
@@ -51,4 +51,4 @@ app.use(
 );
 
 const PORT = process.env.PORT || 4444;
-app.listen(PORT, () => { console.log(`Server listening on ${PORT}`) });
+app.listen(PORT);

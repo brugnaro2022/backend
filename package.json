@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "build": "neutrino build",
-    "start": "nodemon server.js",
+    "start": "nodemon ./src",
     "lint": "neutrino lint",
     "test": "neutrino test"
   },
