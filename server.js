@@ -5,15 +5,15 @@ const cors = require('cors');
 require('dotenv').config({ path: 'variables.env' });
 
 // Models
-const Contract = require('.././models/Contract');
-const User = require('.././models/User');
+const Contract = require('./models/Contract');
+const User = require('./models/User');
 
 // Bring Graphql-express middleware
 const { graphiqlExpress, graphqlExpress } = require('apollo-server-express');
 const { makeExecutableSchema } = require('graphql-tools');
 
-const { typeDefs } = require('../schema');
-const { resolvers } = require('../resolvers');
+const { typeDefs } = require('./schema');
+const { resolvers } = require('./resolvers');
 
 // Create schema
 const schema = makeExecutableSchema({ typeDefs, resolvers });
